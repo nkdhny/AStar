@@ -96,23 +96,25 @@ struct MovemetsToRightPlaceHeuristic: std::unary_function<const Field&, Cost> {
 
 
 /**
- * @brief  1|2|3
- *         4|_|5
- *         6|7|8
+ * @brief  8|1|7
+ *         4|5|6
+ *         2|_|3
+ *
+ *8 1 7 4 5 6 2 0 3
  */
 Field testField() {
     std::vector<Place> p;
 
 
-    p.push_back(Place(Position(0,0), Tile(1)));
-    p.push_back(Place(Position(0,1), Tile(2)));
-    p.push_back(Place(Position(0,2), Tile(3)));
+    p.push_back(Place(Position(0,0), Tile(8)));
+    p.push_back(Place(Position(0,1), Tile(1)));
+    p.push_back(Place(Position(0,2), Tile(7)));
     p.push_back(Place(Position(1,0), Tile(4)));
-    p.push_back(Place(Position(1,1)/*, Tile(5)*/));
-    p.push_back(Place(Position(1,2), Tile(5)));
-    p.push_back(Place(Position(2,0), Tile(6)));
-    p.push_back(Place(Position(2,1), Tile(7)));
-    p.push_back(Place(Position(2,2), Tile(8)));
+    p.push_back(Place(Position(1,1), Tile(5)));
+    p.push_back(Place(Position(1,2), Tile(6)));
+    p.push_back(Place(Position(2,0), Tile(2)));
+    p.push_back(Place(Position(2,1)));//, Tile(2)));
+    p.push_back(Place(Position(2,2), Tile(3)));
 
     return Field(p);
 }
